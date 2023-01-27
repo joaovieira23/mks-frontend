@@ -10,7 +10,13 @@ import {
   ContentButtonIconClose,
   LogoProduct,
   NameProduct,
-  PriceProduct
+  PriceProduct,
+  MainContainer,
+  ContainerEmptyCart,
+  ContainerFooterCart,
+  TitleFooterCart,
+  ContainerButtonFinishCart,
+  ButtonFinishCart
 } from "./styles";
 import { ItemIncrementerAndDecrementer } from "../ItemIncrementerAndDecrementer";
 import { CardCart } from "../CardCart";
@@ -34,7 +40,7 @@ export default function Cart({
 					? "block"
 					: "none",
 			}}>
-                <div style={{ padding: 42}}>
+                <MainContainer>
                     <HeaderCard>
                         <SideBarHeader>Carrinho <br/>de compras</SideBarHeader>
                         <CloseButton onClick={onClose}>
@@ -43,7 +49,7 @@ export default function Cart({
                             </ContentButtonIconClose>
                         </CloseButton>
                     </HeaderCard>
-                    <div style={{display: 'flex', flexDirection: 'column', justifyContent: "space-evenly" }}>
+                    <ContainerEmptyCart>
                         {carts.length === 0 ? (
                         <EmptyCart>O carrinho está vazio</EmptyCart>
                         ) : (
@@ -58,17 +64,17 @@ export default function Cart({
                             </Card>
                         ))
                         )}
-                    </div>
-                </div>
+                    </ContainerEmptyCart>
+                </MainContainer>
                         {carts.length !== 0 && (
                             <>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', padding: 42, marginBottom: 16}}>
-                                    <h4 style={{ color: '#FFFFFF', fontSize: 28, fontWeight: 700, marginBottom: 42 }}>Total</h4>
-                                    <h4 style={{ color: '#FFFFFF', fontSize: 28, fontWeight: 700 }}>R$ {total.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h4>
-                                </div>
-                                <div style={{ position: 'fixed', bottom: 0}}>
-                                    <button style={{  height: 84, fontSize: 28, width: 486, fontWeight: 700, padding: 4, color: '#FFFFFF', border: 'none', outline: 'none', backgroundColor: '#000000'}}>Finalizar Compra</button>
-                                </div>
+                                <ContainerFooterCart>
+                                    <TitleFooterCart style={{ marginBottom: 42 }}>Total</TitleFooterCart>
+                                    <TitleFooterCart>R$ {total.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</TitleFooterCart>
+                                </ContainerFooterCart>
+                                <ContainerButtonFinishCart>
+                                    <ButtonFinishCart>Finalizar Compra</ButtonFinishCart>
+                                </ContainerButtonFinishCart>
                             </>
                         )}
       </CartSideBar>

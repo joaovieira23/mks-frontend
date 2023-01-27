@@ -87,4 +87,46 @@ export const NameProduct = styled.p`
 export const PriceProduct = styled.p`
     font-size: 14px;
     font-weight: 700;
-`
+`;
+
+export const MainContainer = styled.div`
+  padding: 42px;
+`;
+
+export const ContainerEmptyCart = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`;
+
+export const ContainerFooterCart = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 42px;
+  margin-bottom: 16px;
+`;
+
+export const TitleFooterCart = styled.h4`
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 42px;
+`;
+
+export const ContainerButtonFinishCart = styled.div`
+  position: fixed;
+  bottom: 0px;
+`;
+
+export const ButtonFinishCart = styled.button`
+  cursor: pointer;
+  height: 84px;
+  width: 486px;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 4px;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  background-color: #000000;
+`;
