@@ -8,21 +8,31 @@ import {
     CounterItemsCart 
 } from './styles';
 import { ShoppingCart } from 'phosphor-react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {PropsProduct } from '../Products'
 import Cart from '../Cart';
 import { ListProducts } from '../../pages/ListProducts';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { total } from '../../store/cartSlice';
 
 interface PropsCartSelector {
-    cart: Array<PropsProduct>
+    cart: {
+        cartItems: PropsProduct[],
+        total: number;
+    }
 }
 
 export const MainContent = () => {
-    const items = useSelector((state: PropsCartSelector) => state.cart)
+    const {amount} = useSelector((state: { cart: { amount: number } }) => state.cart)
     const [cartsVisibilty, setCartVisible] = useState(false);
 
-    const products = useSelector((state: PropsCartSelector) => state.cart);
+    const {cartItems, total: totalCount} = useSelector((state: PropsCartSelector) => state.cart);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(total())
+    }, [cartItems]);
 
     return (
         <>
@@ -35,7 +45,7 @@ export const MainContent = () => {
                 <ButtonHeaderContainer>
                     <ButtonCart onClick={() => setCartVisible(true)}>
                         <ShoppingCart color="#000000" size={20} />
-                        <CounterItemsCart>{items.length}</CounterItemsCart>
+                        <CounterItemsCart>{amount}</CounterItemsCart>
                     </ButtonCart>
                 </ButtonHeaderContainer>
             </Container>
@@ -46,7 +56,8 @@ export const MainContent = () => {
                 onClose={() =>
                     setCartVisible(false)
                 }
-                carts={products}
+                total={totalCount}
+                carts={cartItems}
             />
 
             <ListProducts />

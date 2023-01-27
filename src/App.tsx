@@ -1,12 +1,11 @@
+import { Provider } from 'react-redux'
+
 import { MainContent } from "./components/MainContent";
-import {Provider} from 'react-redux'
 
 import GlobalStyle from './styles/global';
 import store from "./store/store";
-import Cart from "./components/Cart";
 
-function App() {
-  
+function App() {  
 
   return (
     <div className="App">

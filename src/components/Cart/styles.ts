@@ -7,12 +7,13 @@ export const CartSideBar = styled.div`
   background: #0F52BA;
   top: 0;
   right: 0;
-  padding: 42px;
   position: fixed;
   overflow: auto;
   height: 100%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   transition: all ease-in-out 0.3s;
+
+  ::-webkit-scrollbar {display:none;}
 
   &.expand {
     transition: all ease-in-out 0.3s;
@@ -44,7 +45,7 @@ export const SideBarHeader = styled.p`
 export const Card = styled.div`
   display: flex;
   position: relative;
-  margin: 35px 0 75px 0;
+  margin: 20px 0 28px 0;
 `;
 
 

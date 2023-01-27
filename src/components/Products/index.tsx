@@ -26,6 +26,7 @@ export interface PropsProduct {
     description: string,
     photo: string,
     price: string,
+    amount: number
 }
 
 interface PropsProducts {
