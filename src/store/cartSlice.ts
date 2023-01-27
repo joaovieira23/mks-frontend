@@ -41,7 +41,7 @@ const CartSlice = createSlice({
             );
             state.cartItems[itemIndex].amount > 0 &&
                 state.cartItems[itemIndex].amount-- &&
-                state.amount++;
+                state.amount--;
         },
         remove: (state, action) => {
             state.cartItems.map((cartItem) => {
